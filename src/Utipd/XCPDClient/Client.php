@@ -45,7 +45,22 @@ class Client
         $response = $client->send($request);
 
         // return json data
-        return $response->json()['result'];
+        $json = $response->json();
+
+        // check for error
+        if (isset($json['error'])) {
+            $error = $json['error']['message'];
+            if (isset($json['error']['data'])) {
+                $error .= "\n".json_encode($json['error']['data'], 192);
+            }
+            throw new Exception($error, $json['error']['code']);
+            
+        }
+
+        if (isset($json['result'])) {
+            return $json['result'];
+        }
+        return $response;
     }
 
 
