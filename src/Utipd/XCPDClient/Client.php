@@ -39,7 +39,7 @@ class Client
         $client = $this->buildClient();
 
         // build the request
-        $request = $this->buildRequest($name, $arguments[0], $client);
+        $request = $this->buildRequest($name, $arguments ? $arguments[0] : [], $client);
 
         // get the response
         $response = $client->send($request);
