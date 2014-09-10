@@ -60,7 +60,9 @@ class Client
         if (isset($json['result'])) {
             return $json['result'];
         }
-        return $response;
+
+        throw new Exception("Unexpected Response: ".$response, 1);
+        // return $response;
     }
 
 
