@@ -1,6 +1,6 @@
 {
     "name": "tokenly/xcpd-client",
-    "description": "A client library for the counterparty API",
+    "description": "A client library for the counterpartyd API",
     "type": "library",
     "license": "mit",
     "authors": [
@@ -12,7 +12,7 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "guzzlehttp/guzzle": "4.*"
+        "guzzlehttp/guzzle": "~4"
     },
     "require-dev": {
         "phpunit/phpunit": "~4"
