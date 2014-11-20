@@ -1,6 +1,6 @@
 <?php
 
-use Utipd\XCPDClient\Client;
+use Tokenly\XCPDClient\Client;
 use \Exception;
 use \PHPUnit_Framework_Assert as PHPUnit;
 

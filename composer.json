@@ -1,5 +1,5 @@
 {
-    "name": "utipd/xcpd-client",
+    "name": "tokenly/xcpd-client",
     "description": "A client library for the counterparty API",
     "type": "library",
     "license": "mit",
@@ -18,6 +18,6 @@
         "phpunit/phpunit": "~4"
     },
     "autoload": {
-        "psr-0": {"Utipd\\XCPDClient": "src"}
+        "psr-0": {"Tokenly\\XCPDClient": "src"}
     }
 }

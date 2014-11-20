@@ -1,6 +1,6 @@
 <?php
 
-namespace Utipd\XCPDClient;
+namespace Tokenly\XCPDClient;
 
 
 use Exception;
