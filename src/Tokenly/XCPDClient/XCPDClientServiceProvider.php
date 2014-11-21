@@ -27,7 +27,6 @@ class XCPDClientServiceProvider extends ServiceProvider
     {
         $this->app->bind('Tokenly\XCPDClient\Client', function($app) {
             $config = $app['config']['xcpd-client::xcpd'];
-            echo "\$config:\n".json_encode($config, 192)."\n";
             $client = new Client($config['connection_string'], $config['rpc_user'], $config['rpc_password']);
             return $client;
         });
