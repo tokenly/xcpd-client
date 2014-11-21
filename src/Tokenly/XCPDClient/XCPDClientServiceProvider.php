@@ -15,7 +15,7 @@ class XCPDClientServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        $this->package('tokenly/xcpd-client', 'xcpd-client', __DIR__.'/../../../');
+        $this->package('tokenly/xcpd-client', 'xcpd-client', __DIR__.'/../../');
     }
 
     /**
