@@ -15,7 +15,6 @@ class XCPDClientServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        $this->package('tokenly/xcpd-client', 'xcpd-client', __DIR__.'/../../');
     }
 
     /**
@@ -25,6 +24,8 @@ class XCPDClientServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->package('tokenly/xcpd-client', 'xcpd-client', __DIR__.'/../../');
+
         $this->app->bind('Tokenly\XCPDClient\Client', function($app) {
             $config = $app['config']['xcpd-client::xcpd'];
             $client = new Client($config['connection_string'], $config['rpc_user'], $config['rpc_password']);
