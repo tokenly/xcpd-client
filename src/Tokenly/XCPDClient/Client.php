@@ -3,6 +3,7 @@
 namespace Tokenly\XCPDClient;
 
 
+use Closure;
 use Exception;
 
 /*
@@ -11,6 +12,8 @@ use Exception;
 */
 class Client
 {
+
+    protected $modify_guzzle_client_callback = null;
 
     public function __construct($connection_string, $rpc_user, $rpc_password) {
         $this->connection_string = $connection_string;
@@ -23,15 +26,24 @@ class Client
         // { "method": "METHOD NAME", "params": {"param1": "value1", "param2": "value2"}, "jsonrpc": "2.0", "id": 0 }
         $json_vars = ['method' => $method, 'params' => $params, 'jsonrpc' => '2.0', 'id' => 0, ];
 
-        // if 
+        // build a default client when needed
         if ($client === null) {
             $client = $this->buildClient();
+        }
+
+        // modify the default client
+        if ($this->modify_guzzle_client_callback !== null) {
+            call_user_func($this->modify_guzzle_client_callback, $client);
         }
 
         return $client->createRequest('POST', '/api/', [
             'headers' => ['Content-Type' => 'application/json'],
             'body'    => json_encode($json_vars),
         ]);
+    }
+
+    public function modifyGuzzleClient(Closure $callback) {
+        $this->modify_guzzle_client_callback = $callback;
     }
 
     public function __call($name, $arguments) {
