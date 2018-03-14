@@ -1,23 +1,30 @@
 {
     "name": "tokenly/xcpd-client",
-    "description": "A client library for the counterpartyd API",
+    "description": "A client library for the counterparty API",
     "type": "library",
-    "license": "mit",
+    "license": "MIT",
     "authors": [
         {
             "name": "Devon Weller",
-            "email": "dweller@devonweller.com",
-            "homepage": "http://devonweller.com"
+            "email": "devon@tokenly.com",
+            "homepage": "https://tokenly.com"
         }
     ],
     "require": {
         "php": ">=5.4.0",
-        "guzzlehttp/guzzle": "~5"
+        "rmccue/requests": "^1.7|dev-master"
     },
     "require-dev": {
-        "phpunit/phpunit": "~4"
+        "phpunit/phpunit": "~5"
     },
     "autoload": {
-        "psr-0": {"Tokenly\\XCPDClient": "src"}
+        "psr-4": {"Tokenly\\CounterpartyClient\\": "src/"}
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Tokenly\\CounterpartyClient\\CounterpartyClientServiceProvider"
+            ]
+        }
     }
 }
