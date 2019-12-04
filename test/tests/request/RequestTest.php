@@ -1,7 +1,8 @@
 <?php
 
 use Tokenly\CounterpartyClient\CounterpartyClient;
-use \PHPUnit_Framework_Assert as PHPUnit;
+use \PHPUnit\Framework\Assert as PHPUnit;
+use PHPUnit\Framework\TestCase;
 
 /*
 *
@@ -11,7 +12,7 @@ use \PHPUnit_Framework_Assert as PHPUnit;
 * export XCPD_RPC_PASSWORD="rpcpassword"
 
 */
-class RequestTest extends \PHPUnit_Framework_TestCase
+class RequestTest extends TestCase
 {
 
 
